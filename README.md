@@ -117,39 +117,39 @@ curl -i http://localhost:5000/scim/v2/ServiceProviderConfig -H "Authorization: B
 
 I started the server with a fixed bearer token so it stays the same across restarts. Flask reports it is serving on port 5000, and the SCIM API lives under `/scim/v2` with a dashboard at `/`.
 
-![SCIM server running](https://github.com/mohamedelsayed848363-sys/Automated-Identity-Lifecycle-Management-/blob/main/01-scim-server-running.png))
+![SCIM server running](https://github.com/mohamedelsayed848363-sys/Automated-Identity-Lifecycle-Management-/blob/main/01-scim-server-running.png)
 
 ### Step 2: Expose the server with ngrok
 
 Okta runs in the cloud and cannot reach `localhost`, so I used ngrok to create a public HTTPS tunnel. I authenticated the agent with my account's authtoken (masked in the screenshot) and pointed the tunnel at `127.0.0.1:5000`.
 
-![ngrok authtoken page](screenshots/02-ngrok-authtoken.png)
+![ngrok authtoken page] https://github.com/mohamedelsayed848363-sys/Automated-Identity-Lifecycle-Management-/blob/main/02-ngrok-authtoken.png
 
 The tunnel reports `online` and lists the requests it forwards. The repeating `GET /` lines are the dashboard refreshing every 5 seconds.
 
-![ngrok tunnel online](screenshots/03-ngrok-tunnel-online.png)
+![ngrok tunnel online](https://github.com/mohamedelsayed848363-sys/Automated-Identity-Lifecycle-Management-/blob/main/03-ngrok-tunnel-online.png)
 
 ### Step 3: Check the whole lab on Kali
 
 Both terminals and the dashboard side by side. The dashboard is opened through the public ngrok address, which shows the tunnel works end to end.
 
-![Kali lab overview](screenshots/04-kali-lab-overview.png)
+![Kali lab overview](https://github.com/mohamedelsayed848363-sys/Automated-Identity-Lifecycle-Management-/blob/main/04-kali-lab-overview.png)
 
 ### Step 4: Create the app integration in Okta
 
 The Okta catalog has a SCIM test app, which I looked at first.
 
-![SCIM test app in the Okta catalog](screenshots/05-okta-scim-test-app-catalog.png)
+![SCIM test app in the Okta catalog](https://github.com/mohamedelsayed848363-sys/Automated-Identity-Lifecycle-Management-/blob/main/05-okta-scim-test-app-catalog.png)
 
 The final integration is a custom **SAML 2.0** app named **SCIM Lab App**, because that type of app can have SCIM provisioning attached. The ngrok URL goes into the **Single sign-on URL** and **Audience URI** fields only because Okta requires values there. Single sign-on is not tested in this lab.
 
-![SAML settings of SCIM Lab App](screenshots/06-okta-saml-settings.png)
+![SAML settings of SCIM Lab App]([screenshots/06-okta-saml-settings.png](https://github.com/mohamedelsayed848363-sys/Automated-Identity-Lifecycle-Management-/blob/main/06-okta-saml-settings.png))
 
 ### Step 5: Enable SCIM provisioning
 
 On the app's **General** tab, under **App Settings**, I set **Provisioning** to **SCIM**. This adds the **Provisioning** tab.
 
-![App Settings with Provisioning set to SCIM](screenshots/07-okta-app-settings-scim.png)
+![App Settings with Provisioning set to SCIM](https://github.com/mohamedelsayed848363-sys/Automated-Identity-Lifecycle-Management-/blob/main/07-okta-app-settings-scim.png)
 
 ### Step 6: Connect Okta to the SCIM server
 
@@ -167,17 +167,17 @@ Under **Provisioning → Integration**, I configured the connector, then used **
 
 Under **Provisioning → To App**, three actions are off at first:
 
-![Provisioning to App before the change](screenshots/08-provisioning-before.png)
+![Provisioning to App before the change](https://github.com/mohamedelsayed848363-sys/Automated-Identity-Lifecycle-Management-/blob/main/08-provisioning-before.png)
 
 I enabled **Create Users**, **Update User Attributes** and **Deactivate Users**:
 
-![Lifecycle actions enabled](screenshots/09-provisioning-enabled.png)
+![Lifecycle actions enabled](https://github.com/mohamedelsayed848363-sys/Automated-Identity-Lifecycle-Management-/blob/main/09-provisioning-enabled.png)
 
 ### Step 8 (extra): Add a custom attribute
 
 As an extra exercise I added a custom string attribute named **Region** in the Directory Profile Editor, with an enumerated list of values (AMER, APAC, EMEA).
 
-![Adding the Region attribute](screenshots/10-okta-profile-editor-region.png)
+![Adding the Region attribute](https://github.com/mohamedelsayed848363-sys/Automated-Identity-Lifecycle-Management-/blob/main/10-okta-profile-editor-region.png)
 
 ## Lifecycle tests
 
@@ -187,33 +187,33 @@ Each test changed something in Okta and then checked the result on the SCIM app'
 
 Assigning SCIM Lab App to a user in Okta creates the account in the app. The assignment dialog shows the attributes Okta sends: username, external ID, given and family name, email, title and display name. The Title is still empty here.
 
-![Edit User Assignment with an empty Title](screenshots/11-assignment-before-title.png)
+![Edit User Assignment with an empty Title](https://github.com/mohamedelsayed848363-sys/Automated-Identity-Lifecycle-Management-/blob/main/11-assignment-before-title.png)
 
 ### Mover: update a profile
 
 I set the user's **Title** to `Engineer`.
 
-![Edit User Assignment with Title set to Engineer](screenshots/12-assignment-title-engineer.png)
+![Edit User Assignment with Title set to Engineer](https://github.com/mohamedelsayed848363-sys/Automated-Identity-Lifecycle-Management-/blob/main/12-assignment-title-engineer.png)
 
 The dashboard shows the new title with the user as **Active**.
 
-![Dashboard showing the provisioned users](screenshots/13-dashboard-users.png)
+![Dashboard showing the provisioned users](https://github.com/mohamedelsayed848363-sys/Automated-Identity-Lifecycle-Management-/blob/main/13-dashboard-users.png)
 
 ### Leaver: deactivate a user
 
 Removing a user's assignment in Okta deactivates the account in the app. The dashboard shows **Inactive** and the **Last modified** time moves forward. Okta deactivates instead of deleting, which keeps the account and its history for audits and allows reactivation if the app is assigned again.
 
-![Dashboard after unassignment](screenshots/14-dashboard-inactive-users.png)
+![Dashboard after unassignment](https://github.com/mohamedelsayed848363-sys/Automated-Identity-Lifecycle-Management-/blob/main/14-dashboard-inactive-users.png)
 
 ### Group push
 
 On the **Push Groups** tab I pushed the Okta group **IT** to the app. The push status is **Active**.
 
-![Push Groups tab with IT active](screenshots/15-okta-push-groups.png)
+![Push Groups tab with IT active](https://github.com/mohamedelsayed848363-sys/Automated-Identity-Lifecycle-Management-/blob/main/15-okta-push-groups.png)
 
 The group appears in the app's dashboard with its member count.
 
-![Dashboard Groups table](screenshots/16-dashboard-groups.png)
+![Dashboard Groups table](https://github.com/mohamedelsayed848363-sys/Automated-Identity-Lifecycle-Management-/blob/main/16-dashboard-groups.png)
 
 A group arrives with only those members who are also assigned to the app, which is why a pushed group can show 0 members.
 
@@ -225,19 +225,19 @@ The same activity can be seen in three more places.
 
 Between 07:50:07 and 07:50:11 on the Kali clock, the log shows a `PUT /scim/v2/Users/{id}` returning 200, a `GET` lookup with `filter=userName eq "Mohamed Elsayed"` returning 200, a `POST /scim/v2/Users` returning 201, and `GET` and `PUT` calls on `/scim/v2/Groups/{id}`. Okta first searches for the user by `userName` and then creates it, which is why `userName` is the unique identifier.
 
-![Server request log](screenshots/17-server-request-log.png)
+![Server request log](https://github.com/mohamedelsayed848363-sys/Automated-Identity-Lifecycle-Management-/blob/main/17-server-request-log.png)
 
 ### The tunnel from the outside
 
 ngrok's Traffic Inspector shows the request from Okta's side: at 7:50:09 AM a `GET /scim/v2/Groups/...` arrived from an address that ngrok labels as Amazon Web Services, consistent with Okta's cloud, and returned 200. The other rows are the browser loading the dashboard. The `/favicon.ico` row is the browser asking for a page icon, which the app does not serve.
 
-![ngrok Traffic Inspector](screenshots/18-ngrok-traffic-inspector.png)
+![ngrok Traffic Inspector](https://github.com/mohamedelsayed848363-sys/Automated-Identity-Lifecycle-Management-/blob/main/18-ngrok-traffic-inspector.png)
 
 ### Okta's view
 
 Okta's System Log marks every visible event as SUCCESS: push new user to external application, successfully pushed new user account to app, sync user in external application, push user deactivation to external application, deprovision user from external application, and the group push events for IT.
 
-![Okta System Log](screenshots/19-okta-system-log.png)
+![Okta System Log](https://github.com/mohamedelsayed848363-sys/Automated-Identity-Lifecycle-Management-/blob/main/19-okta-system-log.png)
 
 ### The same events in three places
 
