@@ -286,10 +286,3 @@ This is a lab. It is fine for learning and would need hardening before it handle
 - **Unstable URL.** Free ngrok URLs change on every restart, so the base URL in Okta must be updated each time.
 - **Free trial limits.** The Okta trial org allows 10 active users, which is enough for these tests.
 
-## Future work
-
-- Add request logging to the server to capture the exact SCIM payloads Okta sends
-- Capture the connector test and the title-change request in the log
-- Test Import Users and Profile Updates from the app back into Okta
-- Map the custom Region attribute into the SCIM user schema
-- Replace the bearer token with OAuth 2.0 and run the server under gunicorn with TLS
