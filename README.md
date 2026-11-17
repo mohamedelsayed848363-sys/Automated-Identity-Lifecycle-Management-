@@ -117,7 +117,7 @@ curl -i http://localhost:5000/scim/v2/ServiceProviderConfig -H "Authorization: B
 
 I started the server with a fixed bearer token so it stays the same across restarts. Flask reports it is serving on port 5000, and the SCIM API lives under `/scim/v2` with a dashboard at `/`.
 
-![SCIM server running]([screenshots/01-scim-server-running.png](https://github.com/mohamedelsayed848363-sys/Automated-Identity-Lifecycle-Management-/blob/main/01-scim-server-running.png))
+![SCIM server running](https://github.com/mohamedelsayed848363-sys/Automated-Identity-Lifecycle-Management-/blob/main/01-scim-server-running.png))
 
 ### Step 2: Expose the server with ngrok
 
