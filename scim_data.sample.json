@@ -1,0 +1,182 @@
+{
+  "Users": {
+    "a81f0d5f-84f1-419e-9d33-42d72c49f92f": {
+      "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "id": "a81f0d5f-84f1-419e-9d33-42d72c49f92f",
+      "userName": "seed.user@scimlab.test",
+      "name": {
+        "givenName": "Seed",
+        "familyName": "User"
+      },
+      "emails": [],
+      "displayName": "",
+      "active": true,
+      "_created": "2026-11-15T22:33:04Z",
+      "_modified": "2026-11-15T22:33:04Z"
+    },
+    "3a173782-a9b8-4a1c-9079-84a9e1917a12": {
+      "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "id": "3a173782-a9b8-4a1c-9079-84a9e1917a12",
+      "userName": "mohamed.Elsayed@scimlab.test",
+      "name": {
+        "givenName": "Mohamed",
+        "familyName": "Elsayed"
+      },
+      "emails": [],
+      "displayName": "",
+      "active": true,
+      "_created": "2026-11-15T22:41:43Z",
+      "_modified": "2026-11-15T22:41:43Z"
+    },
+    "c39f1911-5fa2-4eb4-a979-8be5a051a72e": {
+      "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "id": "c39f1911-5fa2-4eb4-a979-8be5a051a72e",
+      "userName": "mo.yousesf@test.eg",
+      "name": {
+        "givenName": "Mohamed",
+        "familyName": "Youssef"
+      },
+      "emails": [
+        {
+          "primary": true,
+          "value": "mo.yousesf@test.eg",
+          "type": "work"
+        }
+      ],
+      "displayName": "Mohamed Youssef",
+      "title": "Engineer",
+      "active": false,
+      "_created": "2026-11-15T23:48:27Z",
+      "_modified": "2026-11-16T00:10:25Z"
+    },
+    "9eee9fa0-d518-4d4c-8e5d-366dfd6df16c": {
+      "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "id": "9eee9fa0-d518-4d4c-8e5d-366dfd6df16c",
+      "userName": "it.user@example.com",
+      "name": {
+        "givenName": "mohamed",
+        "familyName": "Youssef"
+      },
+      "emails": [
+        {
+          "primary": true,
+          "value": "it.user@example.com",
+          "type": "work"
+        }
+      ],
+      "displayName": "mohamed Elsayed",
+      "title": "IT",
+      "active": false,
+      "_created": "2026-11-16T00:00:47Z",
+      "_modified": "2026-11-16T00:05:04Z"
+    },
+    "11c451a4-0404-40d9-bfcc-9f9c88c39cb9": {
+      "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "id": "11c451a4-0404-40d9-bfcc-9f9c88c39cb9",
+      "userName": "Ahmed Elsayed",
+      "name": {
+        "givenName": "Ahmed",
+        "familyName": "Elsayed"
+      },
+      "emails": [
+        {
+          "primary": true,
+          "value": "ahmed.elsayed@example.com",
+          "type": "work"
+        }
+      ],
+      "displayName": "Ahmed Elsayed",
+      "title": "marketing",
+      "active": false,
+      "_created": "2026-11-16T00:06:59Z",
+      "_modified": "2026-11-16T12:50:07Z"
+    },
+    "44b7a1d1-0674-451d-addc-72fb62188637": {
+      "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "id": "44b7a1d1-0674-451d-addc-72fb62188637",
+      "userName": "Reem Ahmed",
+      "name": {
+        "givenName": "Reem",
+        "familyName": "Reem"
+      },
+      "emails": [
+        {
+          "primary": true,
+          "value": "Reem.Ahmed@test.com",
+          "type": "work"
+        }
+      ],
+      "displayName": "Reem Ahmed",
+      "title": "finance",
+      "active": true,
+      "_created": "2026-11-16T00:11:50Z",
+      "_modified": "2026-11-16T00:12:40Z"
+    },
+    "afd77490-7841-44dd-b0cb-c4cf24e19e10": {
+      "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "id": "afd77490-7841-44dd-b0cb-c4cf24e19e10",
+      "userName": "Mohamed Elsayed",
+      "name": {
+        "givenName": "Mohamed",
+        "familyName": "Elsayed"
+      },
+      "emails": [
+        {
+          "primary": true,
+          "value": "mohamedelsayed@test.com",
+          "type": "work"
+        }
+      ],
+      "displayName": "Mohamed Elsayed",
+      "title": "marketing",
+      "active": true,
+      "_created": "2026-11-16T12:50:09Z",
+      "_modified": "2026-11-16T12:50:09Z"
+    }
+  },
+  "Groups": {
+    "4197c5cf-72e1-4ddc-9146-852fd0c5ed3a": {
+      "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:Group"
+      ],
+      "id": "4197c5cf-72e1-4ddc-9146-852fd0c5ed3a",
+      "displayName": "IT",
+      "members": [
+        {
+          "value": "afd77490-7841-44dd-b0cb-c4cf24e19e10",
+          "display": "Mohamed Elsayed"
+        },
+        {
+          "value": "11c451a4-0404-40d9-bfcc-9f9c88c39cb9",
+          "display": "Ahmed Elsayed"
+        }
+      ],
+      "_created": "2026-11-16T00:19:57Z",
+      "_modified": "2026-11-16T12:50:12Z"
+    },
+    "b1b7a748-c74c-45d2-9882-0f38383019bb": {
+      "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:Group"
+      ],
+      "id": "b1b7a748-c74c-45d2-9882-0f38383019bb",
+      "displayName": "marketing",
+      "members": [],
+      "_created": "2026-11-16T00:23:48Z",
+      "_modified": "2026-11-16T00:23:49Z"
+    }
+  }
+}
